@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Byte file generator</title>
+    <link rel="icon" type="image/svg+xml"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22256%22 height=%22256%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%23c810e0%22></rect><path fill=%22%23fff%22 d=%22M22.04 39.90L22.04 39.90L22.04 60.10Q22.04 61.13 22.24 62.07L22.24 62.07L36.93 32.39Q34.52 30.58 31.42 30.58L31.42 30.58Q27.52 30.58 24.78 33.31Q22.04 36.03 22.04 39.90ZM45.96 39.99L45.96 39.99L45.96 60.01Q45.96 65.94 41.70 70.14Q37.45 74.35 31.42 74.35L31.42 74.35Q25.36 74.35 21.14 70.16L21.14 70.16Q16.89 65.94 16.89 60.01L16.89 60.01L16.89 39.99Q16.89 34.06 21.14 29.86Q25.40 25.65 31.42 25.65Q37.45 25.65 41.70 29.86Q45.96 34.06 45.96 39.99ZM40.38 37.06L40.38 37.06L25.43 67.26Q27.97 69.42 31.42 69.42L31.42 69.42Q35.26 69.42 38.03 66.68L38.03 66.68Q40.77 63.97 40.80 60.10L40.80 60.10L40.80 39.90Q40.80 38.38 40.38 37.06ZM65.32 56.30L53.85 40.51L58.43 38.25L68.48 52.37L78.50 38.25L83.08 40.51L71.70 56.24L83.11 72.09L78.41 74.35L68.48 60.30L58.56 74.35L53.88 72.09L65.32 56.30Z%22></path></svg>" />
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style.css">
+  </head>
+
+  <body>
+    <main>
+      <h1>😬 Byte generator 😬</h1>
+      <div id="input">
+        <div>
+          <label for="length">Byte length</label>
+          <input spellcheck="false" type="text" id="length" value="0x2000">
+          <output>0 bytes</output>
+        </div>
+        <div>
+          <span class="label">Bytes:</span>
+        </div>
+        <div class="list">
+          <label><input type="radio" value="Array.from({ length: 256 }, (_, i) => i)" checked name="content">
+            <code>Array.from({ length: 256 }, (_, i) => i)</code></label>
+
+          <label><input type="radio" value="0" name="content">
+            <code>0</code></label>
+
+          <label><input type="radio" value="0xff" name="content">
+            <code>0xff</code></label>
+
+          <label><input type="radio" value="___free_text___" name="content">
+            <code><input id="free-text" type="text"></code></label>
+        </div>
+        <button id="download">Download</button>
+      </div>
+      <p><small>Generates a file for the given length repeating your content selection.</small></p>
+      <canvas hidden></canvas>
+      <div id="test" hidden></div>
+    </main>
+    <footer>
+      <p>Built by <a href="https://remysharp.com">@rem</a> on a byte-less day</p>
+    </footer>
+    <script src="/module.js" type="module"></script>
+  </body>
+
+</html>
